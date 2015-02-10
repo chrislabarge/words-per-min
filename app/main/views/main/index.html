@@ -1,0 +1,16 @@
+<:Title>
+  Home
+
+<:Body>
+  <h1>Home</h1>
+	<h2>{{ page._new_player }}</h2>
+	<h3>Character Length: {{ find_character_length }}</h3>
+	<h3>Gross WPM: {{ find_character_length }}</h3>
+	<br><br>
+	<form e-submit="find_gross_wpm" role="form">
+		<div class="form-groop">
+			<label>Begin Typing</label>
+			<input class="form-control" type="text" value="{{ page._new_player }}" />
+		
+		</div>
+	</form>	
