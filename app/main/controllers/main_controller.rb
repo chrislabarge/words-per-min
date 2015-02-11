@@ -15,14 +15,11 @@ class MainController < Volt::ModelController
 	
 	
 	
-	def stop_time
-		page._new_time = 0
-	end
 	
 	  
 	def difference
-		local_store._time_diff = (Time.now - page._start_time).round
-		page._seconds = local_store._time_diff
+		local_store._time_elapsed = (Time.now - page._start_time).round
+		page._seconds = local_store._time_elapsed
 	end
 	
 	
@@ -35,12 +32,7 @@ class MainController < Volt::ModelController
 		page._start_time = Time.new
 		
 	end
-	
-	 
 
-	
-	
-	
 	def find_character_length
 			string = page._new_player
 			string.length 	
@@ -56,6 +48,7 @@ class MainController < Volt::ModelController
 	def play
 		if find_character_length == 1
 			start_time   #this actually does a good job on restarting the countdown, might need to put it in its own method
+			find_word_num
 		else
 			nil
 		end
