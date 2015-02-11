@@ -29,7 +29,8 @@ class MainController < Volt::ModelController
 	def check_mistakes
 		yolo = page._new_player
 		player_array = yolo.split(" ")
-		player_array
+		correct_array = @splits & player_array 
+		
 	end
 	  
 	def difference
