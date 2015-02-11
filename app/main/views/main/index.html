@@ -2,10 +2,20 @@
   Home
 
 <:Body>
-  <h1>Home</h1>
-	<h2>{{ page._new_player }}</h2>
+  <button e-click="start_time" >Start</button>
+	<button e-click="stop_time" >Stop</button>
+	
+
+	
+	
+	
+		
+	
+	<h2>{{ page._start_time}}</h2>
 	<h3>Character Length: {{ find_character_length }}</h3>
-	<h3>Gross WPM: {{ find_character_length }}</h3>
+	<h3>Words: {{ find_word_num }}</h3>	
+	<h3>Gross WPM: {{ find_gross_wpm }}</h3>
+	<h2>{{ local_store._time_diff }}</h2>
 	<br><br>
 	<form e-submit="find_gross_wpm" role="form">
 		<div class="form-groop">
