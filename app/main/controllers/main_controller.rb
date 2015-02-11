@@ -49,6 +49,7 @@ class MainController < Volt::ModelController
 	def find_word_num
 	   words =	find_character_length / 5
 		 page._words = words	
+		return words	
 		end
 	
 	

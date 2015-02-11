@@ -2,24 +2,34 @@
   Home
 
 <:Body>
-  <button e-click="start_time" >Start</button>
-	<button e-click="stop_time" >Stop</button>
+  
 	
 
 	
 	
 	
-		
-	
-	<h2>{{ page._start_time}}</h2>
+<div class="row">
+	<div class="admin">
+
 	<h3>Character Length: {{ find_character_length }}</h3>
 	<h3>Words: {{ find_word_num }}</h3>	
-	<h2>{{ play }}</h2> <!-- this is what triggeres the countdown-->
+	
+	
 	<h2>{{ page._seconds }}</h2>
-	<h2>{{ (page._seconds / 60)}}</h2>
-	  
+	<h2>{{ (page._seconds / 60)}}</h2> 
+	</div>
+	
+	<h2>{{ play }}</h2> <!-- this is what triggeres the countdown-->  
 	<h3>Gross WPM: {{ gross_wpm }} </h3>
 	
+	<p class="lead">In Volt, to simplify managing application state,
+	 all application state is kept in models that can optionally be persisted 
+	 in different locations. By centralizing the application state, we reduce the amount 
+	 of complex code needed to update a page. We can then build our page's html 
+	 declaratively. The relationships between the page and it's models are bound 
+	 using function and method calls.</p>
+	
+	<div class="col-md-10">
 	<br><br>
 	<form e-submit="find_gross_wpm" role="form">
 		<div class="form-groop">
@@ -27,4 +37,6 @@
 			<input class="form-control" type="text" value="{{ page._new_player }}" />
 		
 		</div>
-	</form>	
+	</form>
+ </div>
+</div>	
