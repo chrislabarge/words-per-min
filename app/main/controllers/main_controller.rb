@@ -22,12 +22,14 @@ class MainController < Volt::ModelController
 	  
 	def difference
 		local_store._time_diff = (Time.now - page._start_time).round
+		page._seconds = local_store._time_diff
 	end
 	
 	
- #def minute_conversion           <-----this totally killed the app
- #	local_store.time_diff/ 60
- #end 
+ def minute_conversion           
+  page._seconds / 60
+ 	
+ end 
 	
 	def start_time
 		page._start_time = Time.new
@@ -46,18 +48,23 @@ class MainController < Volt::ModelController
 	
 	def find_word_num
 	   words =	find_character_length / 5
-	end
+		 page._words = words	
+		end
 	
 	
-	def find_gross_wpm
+	def play
 		if find_character_length == 1
-			start_time
+			start_time   #this actually does a good job on restarting the countdown, might need to put it in its own method
 		else
 			nil
 		end
-		yolo = difference
-		return find_word_num.to_i / yolo
+		difference
 		
+		
+	end
+	
+	def gross_wpm
+		(page._words / minute_conversion).round
 	end
 	
   private
