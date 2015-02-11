@@ -13,25 +13,24 @@
 
 
 		<h3>Words: {{ find_word_num }}</h3>	
-	
-	
-		<h2>{{ page._seconds }}</h2>	
-		<h2>{{ (page._seconds / 60)}}</h2> 
+	  
+	  {{ set_sample_text_array }}
+
+
 	</div>
 	
 	<h2>{{ play }}</h2> <!-- this is what triggeres the countdown-->  
 	<h3>Gross WPM: {{ gross_wpm }} </h3>
 	
-	<p class="lead">In Volt, to simplify managing application state,
-	 all application state is kept in models that can optionally be persisted 
-	 in different locations. By centralizing the application state, we reduce the amount 
-	 of complex code needed to update a page. We can then build our page's html 
-	 declaratively. The relationships between the page and it's models are bound 
-	 using function and method calls.</p>
+	<p class="lead">In Volt, to simplify managing application state, all application 
+		state is kept in models that can optionally be persisted in different locations. By 
+		centralizing the application state, we reduce the amount of complex code needed to 
+		update a page. We can then build our page's html declaratively. The relationships 
+		between the page and it's models are bound using function and method calls.</p>
 	
 	<div class="col-md-10">
 	<br><br>
-	<form e-submit="find_gross_wpm" role="form">
+	<form e-submit="check_mistakes" role="form">
 		<div class="form-groop">
 			<label>Begin Typing</label>
 			<input class="form-control" type="text" value="{{ page._new_player }}" />
@@ -39,4 +38,6 @@
 		</div>
 	</form>
  </div>
+
+{{check_mistakes}}
 </div>	
