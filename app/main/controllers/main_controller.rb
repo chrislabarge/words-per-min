@@ -29,7 +29,7 @@ class MainController < Volt::ModelController
 	def check_mistakes
 		yolo = page._new_player
 		player_array = yolo.split(" ")
-		correct_array = @splits & player_array 
+		@correct_array = @splits & player_array #this is right, but i have to include duplicates as well, I will probably need a  different comparison method
 		
 	end
 	  
