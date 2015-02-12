@@ -29,8 +29,13 @@ class MainController < Volt::ModelController
 	def check_mistakes
 		yolo = page._new_player
 		player_array = yolo.split(" ")
-		@mistakes = player_array - @splits #this is right, but i have to include duplicates as well, I will probably need a  different comparison method
+		@mistakes = player_array - @splits 
 		
+	end
+	
+	def accuaracy(full_array, mistakes_array)
+		correct_words_length = (full_array.length - mistakes_array.length) 
+		accuracy = correct_words / full_array.length 	
 	end
 	  
 	def difference
