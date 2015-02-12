@@ -6,7 +6,9 @@ class MainController < Volt::ModelController
    
   end
  
- 
+  def sup
+  	5
+  end
   
   
   def about
