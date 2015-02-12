@@ -29,18 +29,18 @@ class MainController < Volt::ModelController
 	def check_mistakes
 		yolo = page._new_player
 		player_array = yolo.split(" ")
-		@correct_array = @splits & player_array #this is right, but i have to include duplicates as well, I will probably need a  different comparison method
+		@mistakes = player_array - @splits #this is right, but i have to include duplicates as well, I will probably need a  different comparison method
 		
 	end
 	  
 	def difference
 		local_store._time_elapsed = (Time.now - page._start_time).round
-		page._seconds = local_store._time_elapsed
+		page._seconds_elapsed = local_store._time_elapsed
 	end
 	
 	
  def minute_conversion           
-  page._seconds / 60
+   time = page._seconds_elapsed / 60
  	
  end 
 	
@@ -75,9 +75,18 @@ class MainController < Volt::ModelController
 		
 	end
 	
+	
+	
+	
 	def gross_wpm
 		(page._words / minute_conversion).round
 	end
+	
+	def net_wpm 
+     errors_per_min =  (check_mistakes.count / minute_conversion).round
+		 net_wpm = gross_wpm - errors_per_min
+	end
+	
 	
   private
 

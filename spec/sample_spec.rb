@@ -5,7 +5,8 @@ if ENV['BROWSER']
     it 'should load the page' do
       visit '/'
 
-      expect(page).to have_content('Home')
+      expect(page).to have_content('words-per-min')
     end
   end
 end
+
