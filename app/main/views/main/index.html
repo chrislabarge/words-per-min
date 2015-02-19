@@ -19,9 +19,21 @@
 
 	</div>
 	
+	
+	
+	
 	<h2>{{ play }}</h2> <!-- this is what triggeres the countdown-->  
+	
+	<div class="progress--circle progress--{{ accuracy_rounded }}">
+  <div class="progress__number">{{ accuracy }}%</div>
+	</div>
+	
+	
 	<h3>Gross WPM: {{ gross_wpm }} </h3>
 	<h3>Net WPM: {{ net_wpm }} </h3>
+	<h2>Mistakes: {{ check_mistakes }} </h2>
+	<h2>Accuracy: {{ accuracy }}% </h2>
+	
 	
 	<p class="lead">In Volt, to simplify managing application state, all application 
 		state is kept in models that can optionally be persisted in different locations. By 

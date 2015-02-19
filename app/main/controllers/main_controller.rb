@@ -26,18 +26,32 @@ class MainController < Volt::ModelController
 		@splits 
 	end
 	
+  def user_array
+ 		 page._new_player.split(' ') 
+	end	
+	
+	
 	def check_mistakes
-		yolo = page._new_player
-		player_array = yolo.split(" ")
-		@mistakes = player_array - @splits 
+		
+		@mistakes = user_array - @splits 
 		
 	end
 	
-	def accuaracy(full_array, mistakes_array)
+	def set_accuracy(full_array, mistakes_array)
 		correct_words_length = (full_array.length - mistakes_array.length) 
-		accuracy = correct_words / full_array.length 	
+		fraction = correct_words_length / full_array.length 	
+		percentage = (fraction * 100).round
 	end
 	  
+	def accuracy
+		return set_accuracy(user_array, check_mistakes)
+	end
+	
+	def accuracy_rounded
+			((((accuracy / 10) * 2).round) / 2) * 10
+	end
+	
+	
 	def difference
 		local_store._time_elapsed = (Time.now - page._start_time).round
 		page._seconds_elapsed = local_store._time_elapsed
