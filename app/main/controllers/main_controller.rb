@@ -47,8 +47,9 @@ class MainController < Volt::ModelController
 		return set_accuracy(user_array, check_mistakes)
 	end
 	
-	def accuracy_rounded
-			((((accuracy / 10) * 2).round) / 2) * 10
+	def accuracy_rounded #nearest multiple of 5
+			((((accuracy / 10) * 2).round) / 2) * 10   
+			
 	end
 	
 	
