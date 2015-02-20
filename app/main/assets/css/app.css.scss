@@ -5,7 +5,11 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
 
 * { box-sizing: border-box; }
 
-
+.center {
+	text-align: center;
+	margin-left: auto;
+  margin-right: auto;
+}
 
 
 .bars {

@@ -15,16 +15,20 @@ class MainController < Volt::ModelController
 	
 	
 	
+	def sample_text
+		"In Volt, to simplify managing application state, all application state is kept in models that can optionally be persisted in different locations. By centralizing the application state, we reduce the amount of complex code needed to update a page. We can then build our page's html declaratively. The relationships between the page and it's models are bound using function and method calls."
+	end
+	
+	
 	def set_sample_text_array
 	
-		@splits = "In Volt, to simplify managing application state, all application state is 
-		kept in models that can optionally be persisted in different locations. By centralizing 
-		the application state, we reduce the amount of complex code needed to update a page. 
-		We can then build our page's html declaratively. The relationships between the page 
-		and it's models are bound using function and method calls.".split(" ")
+		@splits = sample_text.split(" ")
 		
 		@splits 
 	end
+	
+	
+	
 	
   def user_array
  		 page._new_player.split(' ') 
@@ -33,18 +37,22 @@ class MainController < Volt::ModelController
 	
 	def check_mistakes
 		
-		@mistakes = user_array - @splits 
-		
+		popped_array = user_array
+		popped_array.pop
+		@mistakes = popped_array - set_sample_text_array
+
 	end
 	
+	
 	def set_accuracy(full_array, mistakes_array)
-		correct_words_length = (full_array.length - mistakes_array.length) 
-		fraction = correct_words_length / full_array.length 	
-		percentage = (fraction * 100).round
+			correct_words_length = (full_array.length - mistakes_array.length)
+			fraction = correct_words_length / full_array.length
+			percentage = (fraction * 100).round
 	end
+	
 	  
 	def accuracy
-		return set_accuracy(user_array, check_mistakes)
+		return set_accuracy(user_array, check_mistakes)# I can also use the equation to the right, but its not as accuarate (net_wpm/gross_wpm * 100).round
 	end
 	
 	def accuracy_rounded #nearest multiple of 5

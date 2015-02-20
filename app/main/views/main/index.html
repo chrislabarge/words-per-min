@@ -9,12 +9,21 @@
 	
 	
 <div class="row">
-	<div class="admin">
-
-
-		<h3>Words: {{ find_word_num }}</h3>	
+	
+	
+	<div class="col-xs-4 center" style="{{ if net_wpm < 31}}color:#E60000; text-shadow: 0 0 8px #FF0000; {{else}}color:#FF9999; {{ end }}"><h3>Slow</h3></div>
+	<div class="col-xs-4 center" style="color:#FFDB4D;"><h3>Average</h3></div>
+  <div class="col-xs-4 center" style="color:#4DB870;"><h3>Fast</h3></div>
+	
+	<div class="col-xs-12">
+	
+	<div class="progress">
+	<div class="progress-bar progress-bar-{{ if net_wpm > 60 }}success{{elsif net_wpm > 31 }}warning{{else}}danger{{end}} progress-bar-striped" role="progressbar" aria-valuenow="{{net_wpm}}" aria-valuemin="0" aria-valuemax="100" style="width: {{net_wpm}}%">
+		<span class="sr-only">40% Complete (success)</span>
+	</div>
+	</div>		
 	  
-	  {{ set_sample_text_array }}
+
 
 
 	</div>
@@ -29,27 +38,34 @@
 	</div>
 	
 	
+	<div class="progress">
+	<div class="progress-bar progress-bar-{{ if net_wpm > 60 }}success{{elsif net_wpm > 31 }}warning{{else}}danger{{end}} progress-bar-striped" role="progressbar" aria-valuenow="{{net_wpm}}" aria-valuemin="0" aria-valuemax="100" style="width: {{net_wpm}}%">
+		<span class="sr-only">40% Complete (success)</span>
+	</div>
+	</div>
+
+	
+	<h3>Words: {{ find_word_num }}</h3>		
 	<h3>Gross WPM: {{ gross_wpm }} </h3>
 	<h3>Net WPM: {{ net_wpm }} </h3>
 	<h2>Mistakes: {{ check_mistakes }} </h2>
 	<h2>Accuracy: {{ accuracy }}% </h2>
+	<p>User: {{ user_character_array }}</p>
 	
 	
-	<p class="lead">In Volt, to simplify managing application state, all application 
-		state is kept in models that can optionally be persisted in different locations. By 
-		centralizing the application state, we reduce the amount of complex code needed to 
-		update a page. We can then build our page's html declaratively. The relationships 
-		between the page and it's models are bound using function and method calls.</p>
+<div class="col-xs-12" style="background-color: #63B8FF;">	
+	<h3 style="color: white;">Sample Text</h3>
+	<p class="lead" style="background-color: white; padding: 5px 20px;">{{ sample_text }}</p>
 	
-	<div class="col-md-10">
-	<br><br>
 	<form e-submit="check_mistakes" role="form">
 		<div class="form-groop">
 			<label>Begin Typing</label>
-			<input class="form-control" type="text" value="{{ page._new_player }}" />
+			<input class="form-control" style="width:80%;" type="text" value="{{ page._new_player }}" />
 		
 		</div>
 	</form>
+ 
+ 
  </div>
 
 
