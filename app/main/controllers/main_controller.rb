@@ -16,7 +16,7 @@ class MainController < Volt::ModelController
 	
 	
 	def sample_text
-		"In Volt, to simplify managing application state, all application state is kept in models that can optionally be persisted in different locations. By centralizing the application state, we reduce the amount of complex code needed to update a page. We can then build our page's html declaratively. The relationships between the page and it's models are bound using function and method calls."
+		"In Volt, to simplify managing application state, all application state is kept in models that can optionally be persisted in different locations. By centralizing the application state, we reduce the amount of complex code needed to update a page. We can then build our page's html declaratively."
 	end
 	
 	
