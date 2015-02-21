@@ -1,3 +1,82 @@
+
+
+
+.center {
+	text-align: center;
+	margin-left: auto;
+  margin-right: auto;
+}
+
+
+.top-header {
+	font-size:35px;
+}
+
+
+.wpm-integer {
+	padding:10px; 
+	font-size:6em; 
+	color: #63B8FF;
+}
+
+.blue-box {
+	background-color: #63B8FF;  
+	border: 10px solid lightblue; 
+	border-radius: 15px;
+}
+
+.submit-field {
+	width: 80%; 
+	height: 40px; 
+	font-size: 18px; 
+	font-weight: 400;
+}
+
+.sample-text {
+	border: 1px solid #CCC; 
+	border-radius: 15px; 
+	background-color: white; 
+	padding: 15px 20px;
+}
+
+
+.skill {
+	font-size: 30px; 
+	
+}
+
+.red {
+ color: #FF5050;
+}
+
+.red-bright {
+ color: #FF0000;	
+ margin-top: 10px;
+ font-size: 35px;	
+}
+
+.yellow {
+	color:#FFD633;	
+}
+
+.yellow-bright{
+	color: #E6B800;
+	margin-top: 10px;
+	font-size: 35px;
+}
+
+.green {
+	color:#4DB870;
+}
+
+.green-bright {
+	color: #00FF00;
+	margin-top: 10px;
+	font-size: 35px;
+}
+
+/* This is for the circle progress bard*/
+
 $spacing: 1rem;
 $themeColor: #63B8FF;
 $backColor: #ddd;
@@ -5,11 +84,6 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
 
 * { box-sizing: border-box; }
 
-.center {
-	text-align: center;
-	margin-left: auto;
-  margin-right: auto;
-}
 
 
 .bars {
