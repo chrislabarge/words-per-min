@@ -22,9 +22,9 @@ class MainController < Volt::ModelController
 	
 	def set_sample_text_array
 	
-		@splits = sample_text.split(" ")
+		sample_text.split(" ")
 		
-		@splits 
+		
 	end
 	
 	
@@ -61,14 +61,14 @@ class MainController < Volt::ModelController
 	end
 	
 	
-	def difference
-		local_store._time_elapsed = (Time.now - page._start_time).round
-		page._seconds_elapsed = local_store._time_elapsed
+	def time_elapsed
+		seconds = (Time.now - page._start_time).round
+	#	page._seconds_elapsed = local_store._time_elapsed
 	end
 	
 	
  def minute_conversion           
-   time = page._seconds_elapsed / 60
+   minutes = time_elapsed / 60
  	
  end 
 	
@@ -94,11 +94,10 @@ class MainController < Volt::ModelController
 	def play
 		if find_character_length == 1
 			start_time   #this actually does a good job on restarting the countdown, might need to put it in its own method
-
 		else
 			nil
 		end
-		difference
+		
 		
 		
 	end
@@ -107,6 +106,7 @@ class MainController < Volt::ModelController
 	
 	
 	def gross_wpm
+		find_word_num
 		(page._words / minute_conversion).round
 	end
 	
