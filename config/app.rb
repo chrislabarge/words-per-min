@@ -4,7 +4,7 @@ Volt.configure do |config|
   # Your app secret is used for signing things like the user cookie so it can't
   # be tampered with.  A random value is generated on new projects that will work
   # without the need to customize.  Make sure this value doesn't leave your server.
-  config.app_secret = 't_LW2puS0CpKtNTPiylnusX2WwAB6WhwpCtp5WebgeDI8UXL-d_3IxggFiLLrcRuuCg'
+  
 
   # Database config all start with db_ and can be set either in the config
   # file or with an environment variable (DB_NAME for example).
