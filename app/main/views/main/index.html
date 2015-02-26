@@ -10,14 +10,17 @@
 	<div class="col-sm-6 center">
 
 		<div class="progress--circle progress--{{ accuracy_rounded }}">
-			<div class="progress__number">{{ accuracy }}%</div>
+			<div class="progress__number">{{ zero_if_nil(accuracy) }}%</div>
 		</div>
 
 		<h4 class="top-header">Accuracy</h4>
 	</div>
 		
 	<div class="col-sm-6 center">
-		<p class="wpm-integer"> {{net_wpm}}</p>
+		<p class="wpm-integer"> 
+				{{ if empty }} 0 {{else }} {{ zero_if_nil(net_wpm) }} 
+				{{ end }}
+		</p>
 		<h4 class="top-header">Words Per Min.</h4>
 	</div>
 

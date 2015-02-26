@@ -115,7 +115,23 @@ class MainController < Volt::ModelController
 		 net_wpm = gross_wpm - errors_per_min
 	end
 	
-	
+	def zero_if_nil(var)
+		if var.is_a? Integer 
+			return var
+		else 
+			return 0
+		end
+	end
+  
+  def empty 
+  	if  page._new_player.empty? 
+			return true
+		else
+			false
+		end		
+  end
+  
+  
   private
 
   # The main template contains a #template binding that shows another
